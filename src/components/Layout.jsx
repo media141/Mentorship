@@ -7,7 +7,9 @@ export default function Layout() {
   return (
     <div className="shell">
       <aside className="sidebar">
-        <div className="brand">BFI Mentors</div>
+        <div className="brand">
+          <img src="https://cdn.prod.website-files.com/66475371db66a8037635ff04/68cbda69bf51a953f6b55aec_Frame%202085660702%20(1).svg" alt="BFI" />
+        </div>
         <nav>
           <NavLink to="/mentors" className={({ isActive }) => (isActive ? "nav-link is-active" : "nav-link")}>
             Mentors

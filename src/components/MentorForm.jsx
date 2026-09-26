@@ -135,11 +135,6 @@ export default function MentorForm({ mentor, onClose, onSaved, onDelete }) {
             </label>
           </div>
 
-          <label className="checkbox-row">
-            <input type="checkbox" checked={form.enabled} onChange={(e) => update("enabled", e.target.checked)} />
-            Live (bookable) — unchecked shows "Coming soon" and hides the booking flow
-          </label>
-
           <h3 className="section-title">Photos</h3>
           <ImageUploadField
             label="Card photo"
@@ -172,6 +167,21 @@ export default function MentorForm({ mentor, onClose, onSaved, onDelete }) {
               <AvailabilityManager mentorId={mentor.id} />
             </>
           )}
+
+          <div className="status-toggle-row">
+            <label className="toggle-switch">
+              <input type="checkbox" checked={form.enabled} onChange={(e) => update("enabled", e.target.checked)} />
+              <span className="toggle-track">
+                <span className="toggle-thumb"></span>
+              </span>
+            </label>
+            <div className="toggle-copy">
+              <span className={"toggle-title" + (form.enabled ? " is-live" : "")}>{form.enabled ? "Live" : "Coming soon"}</span>
+              <span className="toggle-hint">
+                {form.enabled ? "Visible and bookable on the site right now." : "Hidden from booking — shown to visitors as “Coming soon.”"}
+              </span>
+            </div>
+          </div>
 
           {error && <div className="form-error">{error}</div>}
 

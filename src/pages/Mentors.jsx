@@ -61,11 +61,11 @@ export default function Mentors() {
               <h3>{m.name}</h3>
               <p className="muted">{(m.role || []).join(" · ") || "—"}</p>
               <div className="mentor-card-toprow">
-                <button className="btn btn-small" onClick={() => setEditing(m)}>
-                  Edit
-                </button>
                 <button className="btn btn-small" onClick={() => handleToggleEnabled(m)}>
                   {m.enabled ? "Hide" : "Show"}
+                </button>
+                <button className="btn btn-small" onClick={() => setEditing(m)}>
+                  Edit
                 </button>
               </div>
             </div>
