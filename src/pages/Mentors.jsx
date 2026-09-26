@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 import MentorForm from "../components/MentorForm.jsx";
+import MentorPhoto from "../components/MentorPhoto.jsx";
 
 export default function Mentors() {
   const [mentors, setMentors] = useState(null);
@@ -53,7 +54,7 @@ export default function Mentors() {
           <div className="mentor-card" key={m.id}>
             <div className="mentor-card-photo">
               {m.photo_mobile_url || m.photo_card_url ? (
-                <img src={m.photo_mobile_url || m.photo_card_url} alt={m.name} />
+                <MentorPhoto src={m.photo_mobile_url || m.photo_card_url} alt={m.name} />
               ) : (
                 <div className="photo-placeholder">No photo</div>
               )}
