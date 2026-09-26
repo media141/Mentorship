@@ -52,7 +52,11 @@ export default function Mentors() {
         {mentors?.map((m) => (
           <div className="mentor-card" key={m.id}>
             <div className="mentor-card-photo">
-              {m.photo_card_url ? <img src={m.photo_card_url} alt={m.name} /> : <div className="photo-placeholder">No photo</div>}
+              {m.photo_mobile_url || m.photo_card_url ? (
+                <img src={m.photo_mobile_url || m.photo_card_url} alt={m.name} />
+              ) : (
+                <div className="photo-placeholder">No photo</div>
+              )}
               <span className={"status-badge " + (m.enabled ? "is-enabled" : "is-disabled")}>
                 {m.enabled ? "Live" : "Coming soon"}
               </span>

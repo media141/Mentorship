@@ -21,7 +21,6 @@ export default function MentorForm({ mentor, onClose, onSaved, onDelete }) {
     linkedin: mentor.linkedin || "",
     tags: (mentor.tags || []).join(", "),
     enabled: mentor.enabled ?? false,
-    photo_card_url: mentor.photo_card_url || "",
     photo_modal_url: mentor.photo_modal_url || "",
     photo_mobile_url: mentor.photo_mobile_url || "",
   });
@@ -64,7 +63,6 @@ export default function MentorForm({ mentor, onClose, onSaved, onDelete }) {
         .map((s) => s.trim())
         .filter(Boolean),
       enabled: form.enabled,
-      photo_card_url: form.photo_card_url || null,
       photo_modal_url: form.photo_modal_url || null,
       photo_mobile_url: form.photo_mobile_url || null,
     };
@@ -137,14 +135,6 @@ export default function MentorForm({ mentor, onClose, onSaved, onDelete }) {
 
           <h3 className="section-title">Photos</h3>
           <ImageUploadField
-            label="Card photo"
-            hint="Used in the carousel grid — portrait, ~1723×1986"
-            slug={form.slug}
-            fieldKey="card"
-            value={form.photo_card_url}
-            onChange={(url) => update("photo_card_url", url)}
-          />
-          <ImageUploadField
             label="Desktop modal background"
             hint="Wide banner shown behind the booking popup on desktop"
             slug={form.slug}
@@ -154,7 +144,7 @@ export default function MentorForm({ mentor, onClose, onSaved, onDelete }) {
           />
           <ImageUploadField
             label="Mobile photo"
-            hint="Plain portrait photo used full-bleed on the mobile profile screen"
+            hint="Portrait photo — used on the mobile profile screen and the carousel card. Required to go live."
             slug={form.slug}
             fieldKey="mobile"
             value={form.photo_mobile_url}
