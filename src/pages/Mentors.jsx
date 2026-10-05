@@ -64,7 +64,7 @@ export default function Mentors() {
             </div>
             <div className="mentor-card-body">
               <h3>{m.name}</h3>
-              <p className="muted">{(m.role || []).join(" · ") || "—"}</p>
+              <p className="muted">{(m.role || []).join(", ") || "—"}</p>
               <div className="mentor-card-toprow">
                 <button className="btn btn-small" onClick={() => handleToggleEnabled(m)}>
                   {m.enabled ? "Hide" : "Show"}

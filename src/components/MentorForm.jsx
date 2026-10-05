@@ -52,10 +52,7 @@ export default function MentorForm({ mentor, onClose, onSaved, onDelete }) {
     const payload = {
       slug: form.slug || slugify(form.name),
       name: form.name.trim(),
-      role: form.role
-        .split(",")
-        .map((s) => s.trim())
-        .filter(Boolean),
+      role: form.role.trim() ? [form.role.trim()] : [],
       bio: form.bio.trim(),
       linkedin: form.linkedin.trim(),
       tags: form.tags
@@ -112,8 +109,8 @@ export default function MentorForm({ mentor, onClose, onSaved, onDelete }) {
 
           <label>
             Role / title
-            <span className="field-hint">Comma-separated — shown as "Manager · Sterilization · Packaging Facility"</span>
-            <input value={form.role} onChange={(e) => update("role", e.target.value)} placeholder="Manager, Sterilization, Packaging Facility" />
+            <span className="field-hint">Shown exactly as typed, including commas</span>
+            <input value={form.role} onChange={(e) => update("role", e.target.value)} placeholder="Manager, Sterilization & Packaging Facility" />
           </label>
 
           <label>
